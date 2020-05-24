@@ -667,9 +667,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    //Hàm show không có kết nối mạng
     private  void showDialogWhenNoNetwork(){
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this);
-        alertDialog.setTitle("Không có kết nối internet");
+        alertDialog.setTitle("Hiện tại đang không có kết nối internet");
         alertDialog.setMessage("Bạn có muốn xem lại những tin đã đọc gần đây !");
         alertDialog.setIcon(R.drawable.errorw);
         alertDialog.setCancelable(false);
@@ -722,7 +723,7 @@ public class MainActivity extends AppCompatActivity {
                     titleWeb = "Tin Đã Lưu";
 
                 }
-                //cap nhap lai menu chon loai bao cua trang web
+                //Update lại loại báo
                 if (idWebSite != 5) {
 //                    arrArticle.clear();
                     new ReadDataFromURL().execute(linkWeb);
@@ -731,7 +732,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.e("xx", "" + i);
                 invalidateOptionsMenu();
                 MainActivity.this.setTitle(titleWeb);
-                drawerLayout.closeDrawers();  //dong cai tab chon web bao'
+                drawerLayout.closeDrawers();
             }
         });
     }

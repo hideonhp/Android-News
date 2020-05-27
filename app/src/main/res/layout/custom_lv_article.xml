@@ -55,7 +55,8 @@
                 android:gravity="right"
                 android:text="TextView"
                 app:layout_constraintStart_toEndOf="@+id/img_image"
-                app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_title"
+                android:layout_marginLeft="8dp" />
 
         </LinearLayout>
 

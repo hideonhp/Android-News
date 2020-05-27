@@ -10,6 +10,7 @@ import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
+import android.os.Handler;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -175,6 +176,7 @@ public class MainActivity extends AppCompatActivity {
             dialog = new ProgressDialog(MainActivity.this);
             dialog.setMessage("      Đang tải, đợi tí có ngay...");
             dialog.show();
+
         }
 
         @Override
@@ -183,6 +185,7 @@ public class MainActivity extends AppCompatActivity {
             String url = strings[0];
          //   arrArticle.clear();
             try {
+                Thread.sleep(0);
                 org.jsoup.nodes.Document doc = Jsoup.connect(url).get();
                 Elements elements = doc.select("item");
                 for (org.jsoup.nodes.Element item : elements) {

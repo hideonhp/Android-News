@@ -6,10 +6,9 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.BLUETOOTH"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.LOCATION_HARDWARE"/>
-    <uses-permission android:name="android.permission.STATUS_BAR"/>
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
 
     <application
         android:allowBackup="true"
@@ -18,15 +17,19 @@
         android:roundIcon="@mipmap/newspaper"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.apple_ios.docbao.MainActivity.MainActivity">
+        <activity android:name=".MainActivity.SplashBackground"
+            android:theme="@style/SplashscreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity.MainActivity">
+
+        </activity>
         <activity
-            android:name="com.example.apple_ios.docbao.DetailsArticleActivity.DetailsArticleActivity"
+            android:name=".DetailsArticleActivity.DetailsArticleActivity"
             android:label="Nội Dung Chi Tiết" />
         <activity
             android:name="com.facebook.FacebookActivity"
@@ -43,12 +46,12 @@
             android:exported="true" />
 
         <activity
-            android:name="com.example.apple_ios.docbao.ReadArticleActivity.ReadArticleActivity"
+            android:name=".ReadArticleActivity.ReadArticleActivity"
             android:label="        Các tin đã đọc gần đây" />
         <activity
-            android:name="com.example.apple_ios.docbao.DetailsArticleActivity.DetailsArticleOfflineActivity"
+            android:name=".DetailsArticleActivity.DetailsArticleOfflineActivity"
             android:label="Nội Dung Chi Tiết"
-            android:parentActivityName="com.example.apple_ios.docbao.ReadArticleActivity.ReadArticleActivity" />
+            android:parentActivityName=".ReadArticleActivity.ReadArticleActivity" />
     </application>
 
 </manifest>

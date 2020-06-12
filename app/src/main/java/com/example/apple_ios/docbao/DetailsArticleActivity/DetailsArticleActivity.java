@@ -33,51 +33,51 @@ public class DetailsArticleActivity extends AppCompatActivity {
     ShareDialog shareDialog;
     ShareLinkContent shareLinkContent;
     String duongLink;
-    String image, date,title;
+    String image, date, title;
     ProgressBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // getWindow().requestFeature(Window.FEATURE_PROGRESS);
+        // getWindow().requestFeature(Window.FEATURE_PROGRESS);
         FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_details_article);
-        webView=(WebView) findViewById(R.id.wv);
-        shareDialog= new ShareDialog(DetailsArticleActivity.this);
+        webView = (WebView) findViewById(R.id.wv);
+        shareDialog = new ShareDialog(DetailsArticleActivity.this);
 
 
-
-        Intent intent=getIntent();
-        duongLink=intent.getStringExtra("link");
-        image=intent.getStringExtra("image");
-        date=intent.getStringExtra("date");
-        title=intent.getStringExtra("title");
+        Intent intent = getIntent();
+        duongLink = intent.getStringExtra("link");
+        image = intent.getStringExtra("image");
+        date = intent.getStringExtra("date");
+        title = intent.getStringExtra("title");
 
         //Dùng webview để gọi trình duyệt của điện thoại để khởi chạy link, điển hình là chrome
-        webView.getSettings().setAllowFileAccess( true );
-       // webView.getSettings().setAppCacheMaxSize(1024 * 1024 * 30);
+        webView.getSettings().setAllowFileAccess(true);
+        // webView.getSettings().setAppCacheMaxSize(1024 * 1024 * 30);
         webView.getSettings().setAppCacheMaxSize(Long.MAX_VALUE);
         //Log.d("max","....."+Long.MAX_VALUE);
-        webView.getSettings().setAppCacheEnabled( true );
-        webView.getSettings().setAppCachePath( getApplicationContext().getCacheDir().getAbsolutePath() );
-        webView.getSettings().setJavaScriptEnabled( true );
+        webView.getSettings().setAppCacheEnabled(true);
+        webView.getSettings().setAppCachePath(getApplicationContext().getCacheDir().getAbsolutePath());
+        webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setBuiltInZoomControls(true);
-       // webView.getSettings().setTextSize(WebSettings.TextSize.SMALLEST);
+        // webView.getSettings().setTextSize(WebSettings.TextSize.SMALLEST);
         //webView.getSettings().setTextZoom(50);
-        webView.getSettings().setCacheMode( WebSettings.LOAD_DEFAULT ); // load online by default
+        webView.getSettings().setCacheMode(WebSettings.LOAD_DEFAULT); // load online by default
 
 
-        progressBar= (ProgressBar) findViewById(R.id.progress_bar);
+        progressBar = (ProgressBar) findViewById(R.id.progress_bar);
         progressBar.setMax(100);
 
 
         webView.setWebViewClient(new HelpClient());
 
-        webView.setWebChromeClient(new WebChromeClient(){
+        webView.setWebChromeClient(new WebChromeClient() {
             @Override
             public void onProgressChanged(WebView view, int newProgress) {
 
                 progressBar.setProgress(newProgress);
-                if(newProgress==100){
+                if (newProgress == 100) {
                     progressBar.setVisibility(View.GONE);
                 }
 
@@ -104,44 +104,38 @@ public class DetailsArticleActivity extends AppCompatActivity {
         } catch (NoSuchAlgorithmException e) {
 
         }
-
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);  //Show button
-
-
 
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_btn_share,menu);
+        getMenuInflater().inflate(R.menu.menu_btn_share, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId()==R.id.mn_share){
-            if(shareDialog.canShow(ShareLinkContent.class)){
-                shareLinkContent= new ShareLinkContent.Builder()
+        if (item.getItemId() == R.id.mn_share) {
+            if (shareDialog.canShow(ShareLinkContent.class)) {
+                shareLinkContent = new ShareLinkContent.Builder()
                         .setContentTitle("1")
                         .setContentDescription("2")
                         .setContentUrl(Uri.parse(duongLink))
                         .build();
             }
             shareDialog.show(shareLinkContent);
-        }else if(item.getItemId()==R.id.mn_save){
-            MainActivity.databaseSavedArticle.QueryData("INSERT INTO contacts VALUES(null,'" +image+ "','"+title+"','"+duongLink+"','"+date+"')");
-            Toast.makeText(DetailsArticleActivity.this,"Đã Lưu",Toast.LENGTH_SHORT).show();
-        }else if( item.getItemId()== android.R.id.home){
+        } else if (item.getItemId() == R.id.mn_save) {
+            MainActivity.databaseSavedArticle.QueryData("INSERT INTO contacts VALUES(null,'" + image + "','" + title + "','" + duongLink + "','" + date + "')");
+            Toast.makeText(DetailsArticleActivity.this, "Đã Lưu", Toast.LENGTH_SHORT).show();
+        } else if (item.getItemId() == android.R.id.home) {
             finish();
         }
         return super.onOptionsItemSelected(item);
     }
 
 
-
-
-    class  HelpClient extends WebViewClient{
+    class HelpClient extends WebViewClient {
 
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -151,11 +145,6 @@ public class DetailsArticleActivity extends AppCompatActivity {
         }
 
     }
-
-
-
-
-
 
 
 }

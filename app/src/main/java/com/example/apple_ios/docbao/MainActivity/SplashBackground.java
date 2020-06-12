@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 public class SplashBackground extends AppCompatActivity {
-    private static int SplashDelay = 3000;
+    private static int SplashDelay = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

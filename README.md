@@ -1,6 +1,15 @@
 ![Picture](https://s1cdn.vnecdn.net/vnexpress/restruct/i/v336/logo_default.jpg)
 # ứng dụng độc bao chất chơi người dơi
- 
+
+# Danh sách phân công nhóm
+* Nguyễn Vũ Huy: Api Share
+* Thái Hữu Lộc: Giao Diện
+* Nguyễn Thị Cẩm Tú: Sql Lite
+* Bùi Đức Tiến: Xml Dom Parse
+
+
+
+
 # 1.0 Final Version change logs
 # Tính năng mới:
 * có Splash Screen ngầu lòi

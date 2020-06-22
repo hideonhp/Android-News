@@ -1,12 +1,17 @@
 ![Picture](https://s1cdn.vnecdn.net/vnexpress/restruct/i/v336/logo_default.jpg)
 # ứng dụng độc bao chất chơi người dơi
-
+# Danh sách thành viên:
+* Bùi Đức Tiến - 1751010157
+* Nguyễn Thị Cẩm Tú - 1751010178
+* Thái Hữu Lộc - 1751010078
+* Nguyễn Vũ Huy - 1751010050
 # Danh sách phân công nhóm
-* Nguyễn Vũ Huy: Api Share
-* Thái Hữu Lộc: Giao Diện
-* Nguyễn Thị Cẩm Tú: Sql Lite
-* Bùi Đức Tiến: Xml Dom Parse
-
+* Giao diện + menu: cả nhóm
+* Phân tách xml: cả nhóm
+* Sql Lite: Cả nhóm
+* Truyền dữ liệu từ database lên giao diện: cả nhóm
+* Truyền dữ liệu từ rss-xml đã xử lí lên giao diện: cả nhóm
+* 
 
 
 
